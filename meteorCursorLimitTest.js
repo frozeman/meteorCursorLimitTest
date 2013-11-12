@@ -29,12 +29,6 @@ if (Meteor.isClient) {
     console.log('Item rendered');
   };
 
-
-  // using a handlebars helper to show the grid, with the cursor from the template above
-  Handlebars.registerHelper('GridHelper', function(template, theCursor){
-    return Template[template].withData(theCursor);
-  });
-
 }
 
 
