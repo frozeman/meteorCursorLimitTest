@@ -3,7 +3,7 @@ var myCollection = new Meteor.Collection('myColl');//,{connection: null});
 if (Meteor.isClient) {
 
   // fill the collection with some items
-  for (var i = 20 - 1; i >= 0; i--) {
+  for (var i = 0; i <= 20; i++) {
     myCollection.insert({
       itemId: i
     })
@@ -23,6 +23,10 @@ if (Meteor.isClient) {
       Session.set('limit', 20);
     }
   });
+
+  Template.itemComponent.placeTemplate = function(template){
+    return Template[template];
+  };
 
 
   Template.item.rendered = function(){
