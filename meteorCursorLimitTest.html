@@ -1,0 +1,24 @@
+<head>
+  <title>meteorCursorLimitTest</title>
+</head>
+
+<body>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  <button>increase limit</button>
+  <br>
+  {{> GridHelper "grid" theCursor}}
+</template>
+
+<template name="grid">
+    {{#each theCursor}}
+        {{> AnimateTemplate "item"}}
+    {{/each}}
+</template>
+
+<template name="item">
+  I'm an item<br>
+</template>
