@@ -10,20 +10,18 @@
   <h1>Hello World!</h1>
   <button>increase limit</button>
   <br>
-  {{> grid cursor=theCursor templateName="item"}}
+  {{> grid cursor=theCursor}}
 </template>
 
 <template name="grid">
-    {{#each cursor}}
-      Test text<br>
-      {{> itemComponent}}
-    {{/each}}
-</template>
-
-<template name="itemComponent">
-  {{> placeTemplate templateName}}
-</template>
-
-<template name="item">
-  I'm an item {{itemId}}<br>
+  {{#if cursor}}
+    <ul>
+      {{#each cursor}}
+        <li>
+          Test text<br>
+          {{isRendered}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
 </template>

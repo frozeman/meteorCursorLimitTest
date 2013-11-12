@@ -1,13 +1,16 @@
-var myCollection = new Meteor.Collection('myColl');//,{connection: null});
+myCollection = new Meteor.Collection('myColl', {connection: null});
 
 if (Meteor.isClient) {
 
-  // fill the collection with some items
-  for (var i = 0; i <= 20; i++) {
+
+
+  // fill the collection BEFORE the template gets rendered
+  for (var i = 0; i < 20; i++) {
     myCollection.insert({
-      itemId: i
-    })
-  };
+      itemId: 5
+    });
+  }
+
 
   // set default limit
   Session.setDefault('limit', 10);
@@ -24,14 +27,22 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.itemComponent.placeTemplate = function(template){
-    return Template[template];
+  Template.grid.rendered = function(){
+
+      // fill the collection AFTER the template gets rendered
+      // for (var i = 0; i < 20; i++) {
+      //   myCollection.insert({
+      //     itemId: 5
+      //   });
+      // }
+
   };
 
 
-  Template.item.rendered = function(){
-    console.log('Item rendered');
+  Template.grid.isRendered = function(){
+    console.log('List item rendered');
   };
+
 
 }
 
