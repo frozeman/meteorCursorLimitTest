@@ -3,22 +3,24 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> main}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
+<template name="main">
   <button>increase limit</button>
   <br>
-  {{> GridHelper "grid" theCursor}}
+  {{> grid cursor=theCursor}}
 </template>
 
 <template name="grid">
-    {{#each theCursor}}
-        {{> item}}
-    {{/each}}
-</template>
-
-<template name="item">
-  I'm an item<br>
+  {{#if cursor}}
+    <ul>
+      {{#each cursor}}
+        <li>
+          item Text
+          {{isRendered}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
 </template>
