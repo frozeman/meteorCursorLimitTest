@@ -3,11 +3,10 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> main}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
+<template name="main">
   <button>increase limit</button>
   <br>
   {{> grid cursor=theCursor}}
@@ -18,7 +17,7 @@
     <ul>
       {{#each cursor}}
         <li>
-          Test text<br>
+          item Text
           {{isRendered}}
         </li>
       {{/each}}
