@@ -1,7 +1,7 @@
 Test project for Issue https://github.com/meteor/meteor/issues/1592
 
-When using a cursor in an #each helper to render a list it works when increasing the limit, but when passing the cursor in from another template through a handlebars helper, it doesnt calculate the differences correctly and re-renders all items.
-
+Helper in {{#each}} gets not called for each item, when increased by limit.
+Related issue: https://github.com/meteor/meteor/issues/1610
 
 Steps to reproduce:
 
