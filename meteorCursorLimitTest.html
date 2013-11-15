@@ -7,7 +7,8 @@
 </body>
 
 <template name="main">
-  <button>increase limit</button>
+  <button class="increase">increase limit</button>
+  <button class="rerun">rerun helper</button>
   <br>
   {{> grid cursor=theCursor}}
 </template>
@@ -17,10 +18,16 @@
     <ul>
       {{#each cursor}}
         <li>
-          item Text
-          {{isRendered}}
+          {{> placeTemplate "item"}}
         </li>
       {{/each}}
     </ul>
   {{/if}}
+</template>
+
+<template name="item">
+  item Text
+  {{#with secondColl}}
+    {{isCalled}}
+  {{/with}}
 </template>
