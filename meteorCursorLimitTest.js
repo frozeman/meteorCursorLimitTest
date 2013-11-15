@@ -18,15 +18,10 @@ if (Meteor.isClient) {
 
   Template.main.events({
     'click button.increase' : function () {
-      Session.set('limit', 20);
+      Session.set('limit', Session.get('limit') + 10);
     },
     'click button.rerun' : function () {
-      // Session.set('rerunHelper', _.uniqueId());
-
-      // change the items data
-      _.each(mySecondCollection.find().fetch(), function(item){
-        mySecondCollection.update(item._id, {$set: { someValue: _.uniqueId() }});
-      });
+      Session.set('rerunHelper', _.uniqueId());
     }
   });
 
@@ -42,30 +37,17 @@ if (Meteor.isClient) {
   Template.grid.rendered = function(){
 
       // fill the collection AFTER the template gets rendered
-      for (var i = 0; i < 20; i++) {
+      for (var i = 0; i < 80; i++) {
         myCollection.insert({
-          itemId: 5
-        });
-        mySecondCollection.insert({
-          itemId: 5
+          itemId: i + 1
         });
       }
 
   };
-  Template.grid.placeTemplate = function(itemTemplate){
-    return Template[itemTemplate].withData(this);
-  };
 
 
-
-
-  Template.item.secondColl = function(){
-    return mySecondCollection.findOne({itemId:this.itemId});
-    // if(this.lastRerunId && this.lastRerunId !== Session.get('rerunHelper'))
-      // console.log('Rerun helper');
-    // this.lastRerunId = Session.get('rerunHelper');
-  };
-  Template.item.isCalled = function(){
+  Template.grid.isHelperCalled = function(){
+    Session.get('rerunHelper');
     console.log('List item helper called');
   };
 

@@ -18,16 +18,10 @@
     <ul>
       {{#each cursor}}
         <li>
-          {{> placeTemplate "item"}}
+          item Text {{itemId}}
+          {{isHelperCalled}}
         </li>
       {{/each}}
     </ul>
   {{/if}}
-</template>
-
-<template name="item">
-  item Text
-  {{#with secondColl}}
-    {{isCalled}}
-  {{/with}}
 </template>
