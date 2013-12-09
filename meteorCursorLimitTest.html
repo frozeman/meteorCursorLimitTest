@@ -10,19 +10,15 @@
   <button class="order">change order type</button>
   <button class="rerun">rerun helper</button>
   <br>
-  {{> grid cursor=theCursor}}
-</template>
+  
 
-<template name="grid">
-  {{#if cursor}}
-    <ul>
-      {{#each cursor}}
-        <li>
-          {{> placeTemplate "item"}}
-        </li>
-      {{/each}}
-    </ul>
-  {{/if}}
+  <ul>
+    {{#each cursor}}
+      <li>
+        {{> item}}
+      </li>
+    {{/each}}
+  </ul>
 </template>
 
 
