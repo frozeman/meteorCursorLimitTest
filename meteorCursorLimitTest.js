@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
   // set default orderType
   Session.setDefault('orderType', 'itemId');
-  Session.setDefault('rerunHelper', _.uniqueId());
+  Session.setDefault('re->runHelper', _.uniqueId());
 
 
   // The cursor gets passed trough the helper to the grid template
@@ -29,7 +29,7 @@ if (Meteor.isClient) {
         Session.set('orderType', 'itemId');
     },
     'click button.rerun' : function () {
-      Session.set('rerunHelper', _.uniqueId());
+      Session.set('re->runHelper', _.uniqueId());
     }
   });
 
@@ -53,10 +53,15 @@ if (Meteor.isClient) {
       }
 
   };
+  Template.grid.placeTemplate = function(item){
+    return Template[item].withData(this);
+  };
 
 
-  Template.grid.isHelperCalled = function(){
-    Session.get('rerunHelper');
+
+
+  Template.item.isHelperCalled = function(){
+    Session.get('re->runHelper');
     console.log('List item helper called');
   };
 

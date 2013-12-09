@@ -18,11 +18,16 @@
     <ul>
       {{#each cursor}}
         <li>
-          {{name}}
-          item Id: {{itemId}}
-          {{isHelperCalled}}
+          {{> placeTemplate "item"}}
         </li>
       {{/each}}
     </ul>
   {{/if}}
+</template>
+
+
+<template name="item">
+  {{name}}
+  item Id: {{itemId}}
+  {{isHelperCalled}}
 </template>
