@@ -1,6 +1,6 @@
 Test project for Issue https://github.com/meteor/meteor/issues/1672
 
-Helper in {{#each}} gets not called for all items, when the sorting is changes
+Helper in {{#each}} gets called for all items, when the sorting is changed.
 
 Steps to reproduce:
 
